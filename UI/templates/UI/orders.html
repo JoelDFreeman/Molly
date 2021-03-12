@@ -1,0 +1,43 @@
+{% extends "UI/base.html" %}
+{% block content %}    
+<head>
+        {% if title %}
+        <title> MollyDoo Orders - {{ title }}</title>
+        {% else %}
+        <title>MollyDoo Orders/title>
+        {% endif %}
+    </head>
+    <body>
+        {% block body %}
+        <div class="container">
+        {% for orders in object_list %}
+        <h1> Order ID {{ order.id }}</h1>
+        <p>Company {{ order.company }}</p>
+        <p>delivered {{ order.delivered  }}</p>
+        <p>invoiced {{ order.invoiced }}</p>
+        <p>paid {{ order.paid }}</p>
+        <p>notes {{ order.notes }}</p>
+        <p>Created At {{ order.created_at }}</p>
+        <p>Modified {{ order.modified }}</p>
+        {% endfor %}
+        </div>
+        {% endblock %}
+        <form>
+            <label for="Orders"{{ Order.id }}>Order Search</label>  
+            <input type="text" name="Order" id="id"> 
+        </form> 
+        <table class="table">
+            <tr>
+                <th>Order ID</th>
+                <th>Company</th>
+                <th>Invoice</th>
+            </tr>
+            {% for i in order %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.company_id}}</td>
+                    <td>{{i.invoiced}}</td>
+                </tr>
+            {% endfor %}
+        </table> 
+{% endblock content %}

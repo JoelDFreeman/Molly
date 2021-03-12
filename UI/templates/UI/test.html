@@ -1,0 +1,15 @@
+{% extends "UI/base.html" %}
+{% block content %}  
+    {% for order in order %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="">Company {{ order.company_id }}</a>
+                    <small class="text-muted">Order Created At {{ order.created_at }}</small>
+                </div>
+                <h2><a class="order-title" href="">Order ID{{ order.ID }}</a></h2>
+                <p class="order-notes">Notes{{ order.notes }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}  
